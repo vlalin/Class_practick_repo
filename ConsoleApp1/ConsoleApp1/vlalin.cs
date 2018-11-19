@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class Program
+    class vlalin
     {
-        static void Main(string[] args)
-        {
-
-        }
+        string name { get; set; }
+        string surname { get; set; }
+        string lastname { get; set; }
+        int age { get; set; }
     }
 }
