@@ -31,17 +31,15 @@ namespace ConsoleApp1
 
         static void add_piople(List<vlalin> vlalins)
         {
+            
             string name = String.Empty;
-            Console.Write("Введите имя: ");
-            name = Console.ReadLine();
+            name = check_param("Введите имя: "); ;
 
             string surname = String.Empty;
-            Console.Write("Введите фамилию: ");
-            surname = Console.ReadLine();
+            surname = check_param("Введите фамилию: ");
 
             string lastname = String.Empty;
-            Console.Write("Введите отчество: ");
-            lastname = Console.ReadLine();
+            lastname = check_param("Введите отчество: ");
 
             int age = 0;
             Console.Write("Введите возраст: ");
@@ -50,6 +48,34 @@ namespace ConsoleApp1
             Console.Clear();
 
             vlalins.Add(new vlalin(name, surname, lastname, age));
+        }
+
+        static string check_param(string parametr_name)
+        {
+            bool isNormalStr = true;
+            do
+            {
+                Console.Clear();
+                isNormalStr = true;
+                Console.Write(parametr_name);
+                string input = Console.ReadLine();
+                if (input != String.Empty)
+                {
+                    foreach (var item in input)
+                    {
+                        if (Char.IsDigit(item))
+                        {
+                            isNormalStr = false;
+                            break;
+                        }
+                    }
+
+                }
+                else
+                    isNormalStr = false;
+                if(isNormalStr == true)
+                    return input;
+            } while (true);
         }
     }
 }
