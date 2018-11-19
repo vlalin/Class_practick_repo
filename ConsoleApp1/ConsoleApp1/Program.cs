@@ -19,7 +19,14 @@ namespace ConsoleApp1
 
             Municipality.ForEach( x => x.info());
 
+            print_count_of_piople(Municipality);
+
             Console.Read();
+        }
+
+        static void print_count_of_piople(List<vlalin> vlalins)
+        {
+            Console.WriteLine("Количество людей = " + vlalins.Count.ToString());
         }
     }
 }
