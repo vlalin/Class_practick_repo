@@ -12,9 +12,7 @@ namespace ConsoleApp1
         {
             List<vlalin> Municipality = new List<vlalin>();
 
-            add_piople(Municipality);
-            add_piople(Municipality);
-            
+            add_people_by_user_count(Municipality);
 
             Municipality.ForEach( x => x.info());
             print_count_of_piople(Municipality);
@@ -76,6 +74,19 @@ namespace ConsoleApp1
                 if(isNormalStr == true)
                     return input;
             } while (true);
+        }
+
+        static void add_people_by_user_count(List<vlalin> vlalins)
+        {
+            int value = 0;
+            Console.Write("какое количество людей Вы хотите добавить: ");
+            Int32.TryParse(Console.ReadLine(), out value);
+
+
+            for (int i = 0; i < value; i++)
+            {
+                add_piople(vlalins);
+            }
         }
     }
 }
