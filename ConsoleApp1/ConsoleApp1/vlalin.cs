@@ -8,10 +8,10 @@ namespace ConsoleApp1
 {
     class vlalin
     {
-        string name { get; set; }
-        string surname { get; set; }
-        string lastname { get; set; }
-        int age { get; set; }
+        public string name { get; set; }
+        public string surname { get; set; }
+        public string lastname { get; set; }
+        public int age { get; set; }
 
         public vlalin(string name, string surname, string lastname, int age)
         {
