@@ -12,5 +12,15 @@ namespace ConsoleApp1
         string surname { get; set; }
         string lastname { get; set; }
         int age { get; set; }
+
+        public vlalin(string name, string surname, string lastname, int age)
+        {
+            this.name = name;
+            this.surname = surname;
+            this.lastname = lastname;
+            this.age = age;
+        }
+
+
     }
 }

@@ -10,7 +10,10 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            vlalin vlalin = new vlalin("vlad", "Linskiy", "Dmitievish", 21);
 
+
+            
         }
     }
 }
