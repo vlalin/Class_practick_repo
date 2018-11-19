@@ -12,8 +12,11 @@ namespace ConsoleApp1
         {
             vlalin vlalin = new vlalin("vlad", "Linskiy", "Dmitievish", 21);
 
+            vlalin.info();
 
-            
+            Console.Read();
+
+
         }
     }
 }

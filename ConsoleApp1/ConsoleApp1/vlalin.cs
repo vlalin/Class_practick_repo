@@ -21,6 +21,12 @@ namespace ConsoleApp1
             this.age = age;
         }
 
-
+        public void info()
+        {
+            Console.WriteLine("Ваше имя - " + name);
+            Console.WriteLine("Ваша фамилия - " + surname);
+            Console.WriteLine("Ваше отчество - " + lastname);
+            Console.WriteLine("Ваш возраст - " + age);
+        }
     }
 }
