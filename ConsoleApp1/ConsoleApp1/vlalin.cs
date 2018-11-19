@@ -28,5 +28,10 @@ namespace ConsoleApp1
             Console.WriteLine("Ваше отчество - " + lastname);
             Console.WriteLine("Ваш возраст - " + age);
         }
+
+
+       
+
+
     }
 }

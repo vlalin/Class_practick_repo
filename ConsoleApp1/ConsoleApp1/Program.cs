@@ -11,9 +11,14 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             vlalin vlalin = new vlalin("vlad", "Linskiy", "Dmitievish", 21);
+            List<vlalin> Municipality = new List<vlalin>();
 
-            vlalin.info();
-            
+            Municipality.Add(vlalin);
+
+            Municipality.ForEach(x => x.info());
+
+
+
 
             Console.Read();
 
