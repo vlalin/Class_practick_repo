@@ -33,7 +33,7 @@ namespace ConsoleApp1
             this.surname = surname;
         }
 
-        public string info()
+        public string ToString()
         {
             return $" Ваше имя {name}\n Ваша фамилия {surname}\n Ваше отчество {lastname}\n Ваш возраст {age}";
         }

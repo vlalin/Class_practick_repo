@@ -14,7 +14,7 @@ namespace ConsoleApp1
 
             add_people_by_user_count(Municipality);
 
-            Municipality.ForEach( x => x.info());
+            Municipality.ForEach( x => x.ToString());
             print_count_of_piople(Municipality);
 
             
