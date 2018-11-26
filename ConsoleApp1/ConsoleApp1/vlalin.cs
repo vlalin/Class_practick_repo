@@ -21,17 +21,21 @@ namespace ConsoleApp1
             this.age = age;
         }
 
-        public void info()
+        public vlalin(string name)
         {
-            
+            this.name = name;
+        }
 
-            Console.WriteLine("Ваше имя - " + name);
-            Console.WriteLine("Ваша фамилия - " + surname);
-            Console.WriteLine("Ваше отчество - " + lastname);
-            Console.WriteLine("Ваш возраст - " + age);
-            Console.WriteLine("\n");
+        public vlalin(string name, string surname, string lastname)
+        {
+            this.name = name;
+            this.lastname = lastname;
+            this.surname = surname;
+        }
 
-           
+        public string info()
+        {
+            return $" Ваше имя {name}\n Ваша фамилия {surname}\n Ваше отчество {lastname}\n Ваш возраст {age}";
         }
 
 
