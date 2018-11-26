@@ -13,11 +13,14 @@ namespace ConsoleApp1
             List<vlalin> Municipality = new List<vlalin>();
 
             add_people_by_user_count(Municipality);
-
-            Municipality.ForEach( x => x.ToString());
             print_count_of_piople(Municipality);
+            Municipality.ForEach(x => Console.WriteLine( x.ToString()) );
 
-            
+            //ваводим 32 черточки
+            Console.WriteLine(new String('-', 32));
+            //вызываем конструктор копирования (который создаст новго человека скопировав всю инфу с последнего в списке)
+            vlalin tmp = new vlalin(Municipality.Last());
+            Console.WriteLine(tmp.ToString());
 
             Console.Read();
         }

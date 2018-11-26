@@ -38,8 +38,14 @@ namespace ConsoleApp1
             return $" Ваше имя {name}\n Ваша фамилия {surname}\n Ваше отчество {lastname}\n Ваш возраст {age}";
         }
 
-
-       
+        //конструктор копироания
+       public vlalin(vlalin vlad)
+        {
+            this.age = vlad.age;
+            this.lastname = vlad.lastname;
+            this.name = vlad.name;
+            this.surname = vlad.surname;
+        }
 
 
     }
