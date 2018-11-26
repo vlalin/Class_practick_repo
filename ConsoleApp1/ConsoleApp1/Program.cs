@@ -16,6 +16,9 @@ namespace ConsoleApp1
             print_count_of_piople(Municipality);
             Municipality.ForEach(x => Console.WriteLine( x.ToString()) );
 
+            Console.WriteLine(random_person(Municipality).ToString()); 
+
+
             //ваводим 32 черточки
             Console.WriteLine(new String('-', 32));
             //вызываем конструктор копирования (который создаст новго человека скопировав всю инфу с последнего в списке)
@@ -90,6 +93,13 @@ namespace ConsoleApp1
             {
                 add_piople(vlalins);
             }
+        }
+        // Создаёт нового человека и возвращает
+        static vlalin random_person(List<vlalin> vlalins)
+        {
+            vlalin vlalin = new vlalin(vlalins[new Random().Next(vlalins.Count)]);
+
+            return vlalin;
         }
     }
 }
