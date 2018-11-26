@@ -102,9 +102,5 @@ namespace ConsoleApp1
             return vlalin;
         }
 
-        public void test()
-        {
-
-        }
     }
 }
