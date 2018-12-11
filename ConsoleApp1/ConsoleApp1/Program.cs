@@ -14,6 +14,7 @@ namespace ConsoleApp1
 
             add_people_by_user_count(Municipality);
             print_count_of_piople(Municipality);
+           
             Municipality.ForEach(x => Console.WriteLine( x.ToString()) );
 
             Console.WriteLine(random_person(Municipality).ToString()); 
@@ -30,7 +31,10 @@ namespace ConsoleApp1
 
         static void print_count_of_piople(List<vlalin> vlalins)
         {
-            Console.WriteLine("Количество людей = " + vlalins.Count.ToString());
+           
+           Console.WriteLine("Количество людей = " + vlalins.Count.ToString());
+            
+            
         }
 
         static void add_piople(List<vlalin> vlalins)
@@ -44,14 +48,30 @@ namespace ConsoleApp1
 
             string lastname = String.Empty;
             lastname = check_param("Введите отчество: ");
+            try
+            {
+                string age = "";
+                Console.Write("Введите возраст: ");
+                age = Console.ReadLine();
 
-            int age = 0;
-            Console.Write("Введите возраст: ");
-            Int32.TryParse(Console.ReadLine(), out age);
+                if (check_number(age) == true)
+                {
+                    vlalins.Add(new vlalin(name, surname, lastname, Int32.Parse(age)));
+                }
+                else
+                {
+                    vlalins.Add(new vlalin(name, surname, lastname, 0));
+                    throw new Exception();
+                }
 
-            Console.Clear();
-
-            vlalins.Add(new vlalin(name, surname, lastname, age));
+                
+            }
+            catch (Exception x)
+            {
+                Console.WriteLine(x.Message);
+                
+            }
+           
         }
 
         static string check_param(string parametr_name)
@@ -84,12 +104,9 @@ namespace ConsoleApp1
 
         static void add_people_by_user_count(List<vlalin> vlalins)
         {
-            int value = 0;
-            Console.Write("какое количество людей Вы хотите добавить: ");
-            Int32.TryParse(Console.ReadLine(), out value);
+            
 
-
-            for (int i = 0; i < value; i++)
+            for (int i = 0; i <user_count(); i++)
             {
                 add_piople(vlalins);
             }
@@ -97,9 +114,42 @@ namespace ConsoleApp1
         // Создаёт нового человека и возвращает
         static vlalin random_person(List<vlalin> vlalins)
         {
-            vlalin vlalin = new vlalin(vlalins[new Random().Next(vlalins.Count)]);
 
-            return vlalin;
+            try
+            {
+                vlalin vlalin = new vlalin(vlalins[new Random().Next(vlalins.Count)]);
+                return vlalin;
+            }
+            catch (Exception x)
+            {
+                Console.WriteLine(x.Message);
+            }
+
+            return null;
+
+        }
+
+        static bool check_number(string age)
+        {
+            foreach (var item in age)
+            {
+                if (Char.IsNumber(item) == false)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+
+        }
+
+        static int user_count()
+        {
+            int value = 0;
+            Console.Write(" Какое количество людей Вы хотите добавить: ");
+            Int32.TryParse(Console.ReadLine(), out value);
+
+            return value;
         }
 
     }
