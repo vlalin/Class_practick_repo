@@ -33,9 +33,9 @@ namespace ConsoleApp1
             this.surname = surname;
         }
 
-        public string ToString()
+        public string toString()
         {
-            return $" Ваше имя {name}\n Ваша фамилия {surname}\n Ваше отчество {lastname}\n Ваш возраст {age}";
+            return $" \nВаше имя {name}\n Ваша фамилия {surname}\n Ваше отчество {lastname}\n Ваш возраст {age}";
         }
 
         //конструктор копироания

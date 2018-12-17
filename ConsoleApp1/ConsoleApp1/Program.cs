@@ -14,7 +14,7 @@ namespace ConsoleApp1
 
             try
             {
-                menu(Municipality);
+                Municipality = menu(Municipality);
             }
             catch (Exception x)
             {
@@ -22,7 +22,7 @@ namespace ConsoleApp1
             }
             finally
             {
-                menu(Municipality);
+               
 
             }
             
@@ -103,9 +103,9 @@ namespace ConsoleApp1
 
         static void add_people_by_user_count(List<vlalin> vlalins)
         {
+            int x = user_count();
 
-
-            for (int i = 0; i < user_count(); i++)
+            for (int i = 0; i < x; i++)
             {
                 add_piople(vlalins);
             }
@@ -151,28 +151,33 @@ namespace ConsoleApp1
             return value;
         }
 
-        static void menu(List<vlalin> Municipality)
+        static List<vlalin> menu(List<vlalin> Municipality)
         {
             try
             {
                 add_people_by_user_count(Municipality);
                 print_count_of_piople(Municipality);
 
-                Municipality.ForEach(x => Console.WriteLine(x.ToString()));
+               
 
                 if (Municipality != null)
                 {
 
+
+
                     if (Municipality.Count > 0)
                     {
-                        Console.WriteLine(random_person(Municipality).ToString());
+                        //Console.WriteLine(random_person(Municipality).toString());
 
 
-                        //ваводим 32 черточки
-                        Console.WriteLine(new String('-', 32));
-                        //вызываем конструктор копирования (который создаст новго человека скопировав всю инфу с последнего в списке)
-                        vlalin tmp = new vlalin(Municipality.Last());
-                        Console.WriteLine(tmp.ToString());
+                        ////ваводим 32 черточки
+                        //Console.WriteLine(new String('-', 32));
+                        ////вызываем конструктор копирования (который создаст новго человека скопировав всю инфу с последнего в списке)
+                        //vlalin tmp = new vlalin(Municipality.Last());
+                        //Console.WriteLine(tmp.ToString());
+                        Municipality.ForEach(x => Console.WriteLine(x.toString()));
+
+                        change_settings(Municipality);
                     }
 
                 }
@@ -182,11 +187,58 @@ namespace ConsoleApp1
             catch (Exception x)
             {
                 Console.WriteLine(x);
+                menu(Municipality);
             }
-            finally
+
+            return Municipality;
+        }
+
+        static void change_settings(List<vlalin> Municipality) 
+        {
+            Console.Clear();
+            char change = ' ';
+           
+            int index = 1;
+            try
             {
-               menu(Municipality);
+                foreach (var item in Municipality)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("\t\t\t\t" + index + "\n" + item.toString());
+
+                    index++;
+                }
+
+                int choice = 0;
+                Console.Write("\n Выбирете номер человека которого Вы хотите изменить: ");
+                Int32.TryParse(Console.ReadLine(), out choice);
+
+                if (choice < 0 || choice > Municipality.Count)
+                    new Exception("Не верный номер человека!");
+                Console.WriteLine(" 1 - Изменить имя ");
+                Console.WriteLine(" 2 - Изменить фамилию ");
+                Console.WriteLine(" 3 - Изменить отчество ");
+                Console.WriteLine(" 4 - Изменить возраст ");
+
+                switch (choice)
+                {
+                    case 1:
+                        {
+                            Console.WriteLine(" Введите новое имя: ");
+                            string Name = Console.ReadLine();
+                            Municipality[choice].name = Name;
+                            break;
+                        }
+
+
+                }
+
             }
+            catch (Exception exc)
+            {
+                Console.WriteLine(exc.Message);
+            }
+          
         }
 
     }
