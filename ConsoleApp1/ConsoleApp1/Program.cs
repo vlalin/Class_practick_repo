@@ -214,21 +214,49 @@ namespace ConsoleApp1
                 Int32.TryParse(Console.ReadLine(), out choice);
 
                 if (choice < 0 || choice > Municipality.Count)
-                    new Exception("Не верный номер человека!");
-                Console.WriteLine(" 1 - Изменить имя ");
-                Console.WriteLine(" 2 - Изменить фамилию ");
-                Console.WriteLine(" 3 - Изменить отчество ");
-                Console.WriteLine(" 4 - Изменить возраст ");
+                    new Exception("\n Не верный номер человека!");
+                Console.WriteLine(" 1 - Изменить имя; ");
+                Console.WriteLine(" 2 - Изменить фамилию; ");
+                Console.WriteLine(" 3 - Изменить отчество; ");
+                Console.WriteLine(" 4 - Изменить возраст; ");
 
                 switch (choice)
                 {
                     case 1:
                         {
-                            Console.WriteLine(" Введите новое имя: ");
+                            Console.Write(" Введите новое имя: ");
                             string Name = Console.ReadLine();
                             Municipality[choice].name = Name;
                             break;
                         }
+                    case 2:
+                        {
+                            Console.Write(" Введите новую фамилию: ");
+                            string Surname = Console.ReadLine();
+                            Municipality[choice].surname = Surname;
+                            break;
+                        }
+                    case 3:
+                        {
+                            Console.Write(" Введите новое отчество: ");
+                            string Lastname = Console.ReadLine();
+                            Municipality[choice].lastname = Lastname;
+                            break;
+                        }
+                    case 4:
+                        {
+                            Console.WriteLine(" Введите новый возраст: ");
+                            int Age = 0;
+                            Int32.TryParse(Console.ReadLine(), out Age);
+                            Municipality[choice].age = Age;
+                            break;
+                        }
+                    default:
+                        {
+                            Console.WriteLine("An error has occurred - try again.");
+                            break;
+                        }
+
 
 
                 }
